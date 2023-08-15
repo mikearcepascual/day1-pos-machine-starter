@@ -58,4 +58,8 @@ public class PosMachine {
         return receipt.toString();
     }
 
+    public String renderReceipt(List<ReceiptItem> receiptItems, int totalCost){
+        return generateReceipt(receiptItems,totalCost);
+    }
+
 }
