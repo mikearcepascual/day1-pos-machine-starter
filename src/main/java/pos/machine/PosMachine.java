@@ -35,4 +35,8 @@ public class PosMachine {
     public void calculateItemsCost(List<ReceiptItem> receiptItems){
         receiptItems.forEach(ReceiptItem::calculateSubTotal);
     }
+
+    public int calculateTotalCost(List<ReceiptItem> receiptItems){
+        return receiptItems.stream().mapToInt(ReceiptItem::getSubTotal).sum();
+    }
 }
