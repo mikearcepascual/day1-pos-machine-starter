@@ -39,4 +39,12 @@ public class PosMachine {
     public int calculateTotalCost(List<ReceiptItem> receiptItems){
         return receiptItems.stream().mapToInt(ReceiptItem::getSubTotal).sum();
     }
+
+
+    public String generateItemsReceipt(ReceiptItem receiptItem){
+        return String.format("Name: %s, Quantity: %d, Unit price: %d (yuan), Subtotal: %d (yuan)",
+                receiptItem.getName(), receiptItem.getQuantity(), receiptItem.getUnitPrice(), receiptItem.getSubTotal());
+    }
+
+
 }
