@@ -31,4 +31,8 @@ public class PosMachine {
             return null;
         }).filter(Objects::nonNull).collect(Collectors.toList());
     }
+
+    public void calculateItemsCost(List<ReceiptItem> receiptItems){
+        receiptItems.forEach(ReceiptItem::calculateSubTotal);
+    }
 }
