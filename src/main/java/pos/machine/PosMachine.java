@@ -20,7 +20,9 @@ public class PosMachine {
 
         Map<String, Long> barcodeCountMap = barcodes.stream().collect(Collectors.groupingBy(barcode -> barcode, Collectors.counting()));
 
-        return barcodeCountMap.entrySet().stream().map(entry -> {
+        return barcodeCountMap.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .map(entry -> {
             String barcode = entry.getKey();
             long quantity = entry.getValue();
             Item item = itemMap.get(barcode);
