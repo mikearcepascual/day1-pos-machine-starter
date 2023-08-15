@@ -40,11 +40,20 @@ public class PosMachine {
         return receiptItems.stream().mapToInt(ReceiptItem::getSubTotal).sum();
     }
 
-
     public String generateItemsReceipt(ReceiptItem receiptItem){
         return String.format("Name: %s, Quantity: %d, Unit price: %d (yuan), Subtotal: %d (yuan)",
                 receiptItem.getName(), receiptItem.getQuantity(), receiptItem.getUnitPrice(), receiptItem.getSubTotal());
     }
 
+    public String generateReceipt(List<ReceiptItem> receiptItems, int totalCost){
+        StringBuilder receipt = new StringBuilder();
+        receipt.append("***<store earning no money>Receipt***\n");
+        receiptItems.forEach(item -> receipt.append(generateItemsReceipt(item)).append("\n"));
+        receipt.append("----------------------\n");
+        receipt.append("Total: ").append(totalCost).append(" (yuan)\n");
+        receipt.append("**********************");
+
+        return receipt.toString();
+    }
 
 }
