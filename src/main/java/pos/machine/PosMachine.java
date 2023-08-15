@@ -9,8 +9,10 @@ import java.util.stream.Collectors;
 
 public class PosMachine {
     public String printReceipt(List<String> barcodes) {
-        return null;
-
+        List<ReceiptItem> receiptItems = decodeToItems(barcodes);
+        calculateItemsCost(receiptItems);
+        int totalCost = calculateTotalCost(receiptItems);
+        return renderReceipt(receiptItems,totalCost);
     }
 
     public static List<ReceiptItem> decodeToItems(List<String> barcodes){
