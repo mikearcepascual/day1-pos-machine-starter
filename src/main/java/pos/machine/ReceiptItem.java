@@ -24,4 +24,8 @@ public class ReceiptItem {
 
     public int getSubTotal(){ return subTotal; }
 
+    public void calculateSubTotal(){
+        subTotal = unitPrice * quantity;
+    }
+
 }
